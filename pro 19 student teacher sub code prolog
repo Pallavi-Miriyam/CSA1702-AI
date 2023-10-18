@@ -1,0 +1,23 @@
+% Define facts about students, teachers, subjects, and the subject code.
+student(john, computer_science).
+student(amy, mathematics).
+student(michael, computer_science).
+student(susan, physics).
+
+teacher(prof_smith, computer_science).
+teacher(prof_doe, mathematics).
+teacher(prof_jones, physics).
+
+subject_code(computer_science, cs101).
+subject_code(mathematics, math101).
+subject_code(physics, phys101).
+
+% Define a rule to find the teacher for a given subject and its code.
+teaches(Subject, Teacher, Code) :-
+    subject_code(Subject, Code),
+    teacher(Teacher, Subject).
+
+% Define a rule to find students enrolled in a specific subject and its code.
+enrolled_in(Subject, Student, Code) :-
+    subject_code(Subject, Code),
+    student(Student, Subject).
